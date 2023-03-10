@@ -1,5 +1,7 @@
+import confetti from "canvas-confetti";
 import { useEffect, useState, useRef } from "react";
 export default function UseGame(
+  cards,
   reverseAll,
   initGame, 
   getRandomCards,
@@ -48,6 +50,7 @@ export default function UseGame(
 
     useEffect(()=>{
       if(statusGame.score >= 6){
+        confetti()
         level.current += 1
         changeMessage('¡Felicidades!, tu memoria es increible 🤯 ')
         setInitGame('reStart')
@@ -66,6 +69,7 @@ export default function UseGame(
         
         if(selectedCards[0].id === selectedCards[1].id){
           setStatusGame(prev => { return {...prev, coins: statusGame.coins + 100} })
+          console.log(statusGame.coins)
           setStatusGame(prev => { return {...prev, score: statusGame.score + 1} })
           setSelectedCards([])
           changeMessage('¡Felicidades!, has encontrado un par. 👏🏻')
@@ -82,7 +86,7 @@ export default function UseGame(
          
         }
       }
-    }, [selectedCards, statusGame])
+    }, [selectedCards, statusGame, cards])
 
 
       return {selectedCards, setSelectedCards, statusGame}
