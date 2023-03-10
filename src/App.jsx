@@ -10,9 +10,9 @@ import { useState } from "react"
 
 function App() {
   const [initGame, setInitGame] = useState('')
-  const {template, modal, changeMessage, reStart} = UseModal(setInitGame)
+  const {template, modal, changeMessage} = UseModal(setInitGame)
   const {cards, getRandomCards, changeBoard, cleanBoard, reverseAll} = UseCharacters()
-  const {setSelectedCards, selectedCards, statusGame} = UseGame(reStart, reverseAll, initGame, getRandomCards, changeMessage, setInitGame, cleanBoard)
+  const {setSelectedCards, selectedCards, statusGame} = UseGame(reverseAll, initGame, getRandomCards, changeMessage, setInitGame, cleanBoard)
     
 
   return (

@@ -1,6 +1,5 @@
 import { useEffect, useState, useRef } from "react";
 export default function UseGame(
-  reStart,
   reverseAll,
   initGame, 
   getRandomCards,
@@ -12,7 +11,7 @@ export default function UseGame(
     const [selectedCards, setSelectedCards] = useState([])
     const [statusGame, setStatusGame] = useState({
       coins: 0,
-      lives: 3,
+      lives: 5,
       score: 0,
     })
 
